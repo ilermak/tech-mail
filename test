@@ -1,0 +1,23 @@
+import pytest
+
+
+class TestDict:
+    @staticmethod
+    def test_1():
+        d = {'i': '8', 'j': '16', 'k': '32'}
+        try:
+            assert d['val']
+        except KeyError:
+            pass
+
+    @staticmethod
+    @pytest.mark.parametrize('testInput, expectedResult', [('Key1', False), ('Key2', 42), ('Key3', 13)])
+    def test_3(testInput, expectedResult):
+        dictionary = {'Key1': False, 'Key2': 42, 'Key3': 13}
+        assert dictionary.get(testInput) == expectedResult
+
+    @staticmethod
+    def test_2():
+        d1 = {'i': '8', 'j': '16', 'k': '32'}
+        d2 = {'i': '16', 'j': '32', 'k': '8'}
+        assert d1 != d2
